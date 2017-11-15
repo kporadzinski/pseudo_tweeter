@@ -2,16 +2,9 @@
 
 function noc(i) {
 
-  var formy = document.getElementsByClassName('frm');
-
-  formy.foreach(prze(i));
-
-
-  prze function (i) {
-
-    if (oka.dataset.om === i){
-      oka.Classlist.toggle('noc');
-    }
-  }
+  var formy = document.getElementById('form12');
+  console.log('i wynosi'+i);
+  formy.classList.toggle('noc');
+  return (formy)
 
 };

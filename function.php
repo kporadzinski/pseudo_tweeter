@@ -21,13 +21,7 @@ function printLog() {
     <input id='psw2' type='password' name='password2'/> potwierdź hasło <br>
     <input type='submit'/><br>
 
-
-
-
-
-"
-
-;
+";
 
 }
 
@@ -55,7 +49,7 @@ function putTweet() {
 
     $tweet = $_POST['tweet'];
     $user=   $_GET['user'];
-    $conn = new mysqli ('localhost','root','','tweeter');
+    $conn = new mysqli('localhost','root','','tweeter');
     $query ="INSERT INTO Tweets VALUES ('','$tweet','3')";
     $result = $conn->query($query);
     echo($conn->error);
@@ -70,12 +64,13 @@ function showTweets() {
     $query ="SELECT * FROM `Tweets`";
     $result = $conn->query($query);
     $i=0;
+    echo '<div id="container">';
     foreach($result as $row){
         $tekst = $row['tweet'] ;
         printDiv($tekst, $i);
         $i++;
         }
-
+    echo '</div>';
 
     echo($conn->error);
 
@@ -90,13 +85,13 @@ function printDiv($tekst, $i) {
 
 echo ('
 
-  <div class="tweety" data-om='.$i.'>
+  <div class="tweety"  >
 
     <p>'.$tekst.'</p>
 
-    <button class="btn" onclick="noc('.$i.')"> EDIT </button>
+    <button class="btn" id="'.$i.'" onclick="noc(this.id)"> EDIT </button>
 
-    <form class="frm" action="tweet.php" action="post"><br>
+    <form class="frm" id="form'.$i.'" action="tweet.php" action="post"><br>
     <input type="text" value="'.$tekst.'"><br>
     <input type="submit">
 
