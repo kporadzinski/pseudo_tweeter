@@ -87,11 +87,11 @@ echo ('
 
   <div class="tweety"  >
 
-    <p>'.$tekst.'</p>
+    <p id="tekst'.$i.'">'.$tekst.'</p>
 
     <button class="btn" id="'.$i.'" onclick="noc(this.id)"> EDIT </button>
 
-    <form class="frm" id="form'.$i.'" action="tweet.php" action="post"><br>
+    <form class="frm noc" id="form'.$i.'" action="tweet.php" action="post"><br>
     <input type="text" value="'.$tekst.'"><br>
     <input type="submit">
 
